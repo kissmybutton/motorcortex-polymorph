@@ -49,6 +49,6 @@ const comet = new Plugin.Polymorph(
 | addPoints     | Adds additional points to each side of the tween over what is required  | num |
 |  originX   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. | num |
 | originY     | the minimum size of comets  | num |
-| precision     | The list of colors of meteorite  | array of colors |
+| precision     | The list of colors of meteorite  | num |
 
 
