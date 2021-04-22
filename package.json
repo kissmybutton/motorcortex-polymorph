@@ -1,6 +1,6 @@
 {
   "name": "@kissmybutton/motorcortex-polymorph",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Your plugin description here",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",

@@ -1,9 +1,9 @@
 import MotorCortex from "@kissmybutton/motorcortex";
-import * as Polymorph from "polymorph-js";
+import { interpolate } from "polymorph-js";
 
 export default class MyEffect extends MotorCortex.Effect {
   onGetContext() {
-    this.interpolator = Polymorph.interpolate(
+    this.interpolator = interpolate(
       [this.initialValue, this.animAttributes.d],
       {
         addPoints: this.attrs.addPoints || 0,
