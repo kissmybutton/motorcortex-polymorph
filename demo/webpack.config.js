@@ -28,23 +28,6 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader",
-            options: { sourceMap: true }, // creates style nodes from JS strings
-          },
-          {
-            loader: "css-loader",
-            options: { sourceMap: true }, // translates CSS into CommonJS
-          },
-          {
-            loader: "sass-loader",
-            options: { sourceMap: true }, // compiles Sass to CSS
-          },
-        ],
-      },
     ],
   },
 
@@ -69,12 +52,12 @@ module.exports = {
     historyApiFallback: false,
     hot: true,
     contentBase: "./demo",
-    open: true
+    open: true,
   },
   resolve: {
     fallback: {
-        fs: false,
-        path: false
+      fs: false,
+      path: false,
     },
   },
 
