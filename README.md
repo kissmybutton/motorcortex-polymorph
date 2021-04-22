@@ -14,8 +14,8 @@ $ yarn add @kissmybutton/motorcortex-polymorph
 ## Loading
 
 ```javascript
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const polymorphDefinition = require("@kissmybutton/motorcortex-polymorph");
+import MotorCortex from "@kissmybutton/motorcortex/"
+import polymorphDefinition from "@kissmybutton/motorcortex-polymorph"
 const Plugin = MotorCortex.loadPlugin(polymorphDefinition);
 ```
 
