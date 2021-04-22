@@ -15,16 +15,16 @@ $ yarn add @kissmybutton/motorcortex-polymorph
 
 ```javascript
 const MotorCortex = require("@kissmybutton/motorcortex/");
-const cometsDefinition = require("@kissmybutton/motorcortex-polymorph");
-const Plugin = MotorCortex.loadPlugin(BannersDefinition);
+const polymorphDefinition = require("@kissmybutton/motorcortex-polymorph");
+const Plugin = MotorCortex.loadPlugin(polymorphDefinition);
 ```
 
 # Create incident
 
-## Comets
+## Polymorph
 
 ```javascript
-const comet = new Plugin.Polymorph(
+const polymorph = new Plugin.Polymorph(
   {
     animatedAttrs: {
       d: `M209 289h-4c-4-8.4-5.8-8.8-13.5-3.9-2.4 1.5-5 2.6-7.5 11.4z`,
@@ -41,14 +41,14 @@ const comet = new Plugin.Polymorph(
 );
 ```
 
-### Comets Attrs
+### Polymorph Attrs
 
 | Name        | Are           | Values  |
 | ------------- |:-------------:| -----:|
 | d     | svg path  | sting |
 | addPoints     | Adds additional points to each side of the tween over what is required  | num |
 |  originX   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. | num |
-| originY     | the minimum size of comets  | num |
-| precision     | The list of colors of meteorite  | num |
+| originY     | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path.  | num |
+| precision     | The number of decimal places to use when rendering paths  | num |
 
 
