@@ -719,7 +719,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   _e.Path;
   return {
     npm_name: "@kissmybutton/motorcortex-polymorph",
-    version: "0.0.5",
+    version: "0.0.6",
     incidents: [{
       exportable: function (e) {
         !function (e, t) {
@@ -891,7 +891,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("1db89914f513cee7c2b7")
+/******/ 		__webpack_require__.h = () => ("b1d29fd3aff58ee7c77b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
