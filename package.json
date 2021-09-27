@@ -79,7 +79,7 @@
     "eslint-plugin-promise": "4.3.1",
     "exports-loader": "2.0.0",
     "husky": "7.0.2",
-    "imports-loader": "2.0.0",
+    "imports-loader": "3.0.0",
     "npx": "10.2.2",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
