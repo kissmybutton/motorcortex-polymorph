@@ -1,4 +1,4 @@
-import MotorCortex from "@kissmybutton/motorcortex";
+import MotorCortex from "@donkeyclip/motorcortex";
 import { interpolate } from "polymorph-js";
 
 export default class MyEffect extends MotorCortex.Effect {
