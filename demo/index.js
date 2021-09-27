@@ -1,8 +1,8 @@
-import MotorCortex from "@kissmybutton/motorcortex";
-import MyPluginDefinition from "../dist/bundle.umd";
+import MotorCortex from "@donkeyclip/motorcortex";
+import MyPluginDefinition from "../dist/motorcortex-polymorph.umd";
 const MyPlugin = MotorCortex.loadPlugin(MyPluginDefinition);
 
-import Player from "@kissmybutton/motorcortex-player";
+import Player from "@donkeyclip/motorcortex-player";
 
 const clip = new MotorCortex.HTMLClip({
   html: ` <div class="wrapper">
@@ -51,4 +51,4 @@ const newEffect = new MyPlugin.Polymorph(
 
 clip.addIncident(newEffect, 500);
 
-const player = new Player({ clip });
+new Player({ clip });
