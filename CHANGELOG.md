@@ -1,0 +1,8 @@
+# Changelog
+
+## 1.0.0 (2021-09-29)
+
+
+### Bug Fixes
+
+* update npm name ([1834a23](https://www.github.com/donkeyclip/motorcortex-polymorph/commit/1834a239957a73d7afb9518229c9930e7d04bd91))
