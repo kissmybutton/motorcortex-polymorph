@@ -762,7 +762,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
   return {
     npm_name: "@donkeyclip/motorcortex-polymorph",
-    version: "0.0.6",
+    version: "1.0.0",
     incidents: [{
       exportable: qe,
       name: "Polymorph",
@@ -891,7 +891,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("d205e4ad755a5aeef90f")
+/******/ 		__webpack_require__.h = () => ("b0d7fd4a5ac4aa8f06b8")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
