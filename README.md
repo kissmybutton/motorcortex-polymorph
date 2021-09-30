@@ -1,21 +1,21 @@
 # motorcortex-polymorph
 
 ## Demo
-[Check it out here](https://kissmybutton.github.io/motorcortex-polymorph/demo/index.html)
+[Check it out here](https://donkeyclip.github.io/motorcortex-polymorph/demo/index.html)
 
 ## Installation
 
 ```bash
-$ npm install --save @kissmybutton/motorcortex-polymorph
+$ npm install --save @donkeyclip/motorcortex-polymorph
 # OR
-$ yarn add @kissmybutton/motorcortex-polymorph
+$ yarn add @donkeyclip/motorcortex-polymorph
 ```
 
 ## Loading
 
 ```javascript
-import MotorCortex from "@kissmybutton/motorcortex/"
-import polymorphDefinition from "@kissmybutton/motorcortex-polymorph"
+import MotorCortex from "@donkeyclip/motorcortex/"
+import polymorphDefinition from "@donkeyclip/motorcortex-polymorph"
 const Plugin = MotorCortex.loadPlugin(polymorphDefinition);
 ```
 

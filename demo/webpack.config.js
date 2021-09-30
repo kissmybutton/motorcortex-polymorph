@@ -9,6 +9,10 @@ module.exports = {
   resolve: {
     extensions: [".js"],
     modules: [path.resolve("./"), "node_modules"],
+    fallback: {
+      fs: false,
+      path: false,
+    },
   },
   output: {
     filename: "bundle.js",
@@ -46,19 +50,11 @@ module.exports = {
   ],
 
   devServer: {
-    // watchContentBase: true, // initiate a page refresh if static content changes
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     port: 8080,
     historyApiFallback: false,
-    hot: true,
-    contentBase: "./demo",
-    open: true,
-  },
-  resolve: {
-    fallback: {
-      fs: false,
-      path: false,
-    },
+    hot: false,
+    static: "./demo",
   },
 
   optimization: {

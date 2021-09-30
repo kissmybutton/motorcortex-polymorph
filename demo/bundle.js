@@ -104,10 +104,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   function u(e, t) {
-    return !t || "object" != _typeof(t) && "function" != typeof t ? function (e) {
+    if (t && ("object" == _typeof(t) || "function" == typeof t)) return t;
+    if (void 0 !== t) throw new TypeError("Derived constructors may only return object or undefined");
+    return function (e) {
       if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
       return e;
-    }(e) : t;
+    }(e);
   }
 
   function s(e) {
@@ -136,105 +138,93 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     };
   }
 
-  var l = Object.defineProperty({
-    _: undefined,
-    SPACE: " ",
-    FILL: "fill",
-    NONE: "none",
-    DRAW_LINE_VERTICAL: "V",
-    DRAW_LINE_HORIZONTAL: "H",
-    DRAW_LINE: "L",
-    CLOSE_PATH: "Z",
-    MOVE_CURSOR: "M",
-    DRAW_CURVE_CUBIC_BEZIER: "C",
-    DRAW_CURVE_SMOOTH: "S",
-    DRAW_CURVE_QUADRATIC: "Q",
-    DRAW_CURVE_QUADRATIC_CONTINUATION: "T",
-    DRAW_ARC: "A"
-  }, "__esModule", {
+  var l = {},
+      c = {},
+      f = {},
+      p = {},
+      v = {};
+  Object.defineProperty(v, "__esModule", {
     value: !0
-  });
-
-  var c = function c(e) {
+  }), v._ = void 0, v.SPACE = " ", v.FILL = "fill", v.NONE = "none", v.DRAW_LINE_VERTICAL = "V", v.DRAW_LINE_HORIZONTAL = "H", v.DRAW_LINE = "L", v.CLOSE_PATH = "Z", v.MOVE_CURSOR = "M", v.DRAW_CURVE_CUBIC_BEZIER = "C", v.DRAW_CURVE_SMOOTH = "S", v.DRAW_CURVE_QUADRATIC = "Q", v.DRAW_CURVE_QUADRATIC_CONTINUATION = "T", v.DRAW_ARC = "A";
+  var _ = {};
+  Object.defineProperty(_, "__esModule", {
+    value: !0
+  }), _.isString = function (e) {
     return "string" == typeof e;
-  },
-      f = Object.defineProperty({
-    isString: c
-  }, "__esModule", {
-    value: !0
-  });
-
-  var p = function (e) {
-    var t = {
-      exports: {}
-    };
-    return e(t, t.exports), t.exports;
-  }(function (e, t) {
-    Object.defineProperty(t, "__esModule", {
+  };
+  var d = {};
+  !function (e) {
+    Object.defineProperty(e, "__esModule", {
       value: !0
     });
-    var r = Math;
-    t.abs = r.abs, t.min = r.min, t.max = r.max, t.floor = r.floor, t.round = r.round, t.sqrt = r.sqrt, t.pow = r.pow, t.cos = r.cos, t.asin = r.asin, t.sin = r.sin, t.tan = r.tan, t.PI = r.PI, t.QUADRATIC_RATIO = 2 / 3, t.EPSILON = t.pow(2, -52);
+    var t = Math;
+    e.abs = t.abs, e.min = t.min, e.max = t.max, e.floor = t.floor, e.round = t.round, e.sqrt = t.sqrt, e.pow = t.pow, e.cos = t.cos, e.asin = t.asin, e.sin = t.sin, e.tan = t.tan, e.PI = t.PI, e.QUADRATIC_RATIO = 2 / 3, e.EPSILON = e.pow(2, -52);
+  }(d), Object.defineProperty(p, "__esModule", {
+    value: !0
   });
+  var y = v,
+      A = _,
+      h = d;
 
-  var _ = function _(e, t) {
-    if (void 0 === t && (t = p.round), f.isString(e)) return e;
+  p.renderPath = function (e, t) {
+    if (void 0 === t && (t = h.round), A.isString(e)) return e;
 
     for (var r = [], n = 0; n < e.length; n++) {
       var o = e[n];
-      r.push(l.MOVE_CURSOR, t(o[0]), t(o[1]), l.DRAW_CURVE_CUBIC_BEZIER);
+      r.push(y.MOVE_CURSOR, t(o[0]), t(o[1]), y.DRAW_CURVE_CUBIC_BEZIER);
 
       for (var i = void 0, a = 2; a < o.length; a += 6) {
         var u = t(o[a]),
             s = t(o[a + 1]),
-            c = t(o[a + 2]),
-            _ = t(o[a + 3]),
-            v = t(o[a + 4]),
-            d = t(o[a + 5]);
-
-        u == v && c == v && s == d && _ == d && i == (i = "" + u + s + c + _ + v + d) || r.push(u, s, c, _, v, d);
+            l = t(o[a + 2]),
+            c = t(o[a + 3]),
+            f = t(o[a + 4]),
+            p = t(o[a + 5]);
+        u == f && l == f && s == p && c == p && i == (i = "" + u + s + l + c + f + p) || r.push(u, s, l, c, f, p);
       }
     }
 
-    return r.join(l.SPACE);
-  },
-      v = Object.defineProperty({
-    renderPath: _
-  }, "__esModule", {
+    return r.join(y.SPACE);
+  };
+
+  var g = {};
+  Object.defineProperty(g, "__esModule", {
     value: !0
   });
+  var R = v;
 
-  var d = function d() {
-    throw new Error(Array.prototype.join.call(arguments, l.SPACE));
-  },
-      y = Object.defineProperty({
-    raiseError: d
-  }, "__esModule", {
-    value: !0
-  }),
-      A = "undefined" != typeof window && window.navigator.userAgent,
-      h = /(MSIE |Trident\/|Edge\/)/i.test(A),
-      g = Object.defineProperty({
-    isEdge: h
-  }, "__esModule", {
-    value: !0
-  }).isEdge ? Array : Float32Array;
+  g.raiseError = function () {
+    throw new Error(Array.prototype.join.call(arguments, R.SPACE));
+  };
 
-  var R = function R(e) {
-    return new g(e);
-  },
-      m = Object.defineProperty({
-    createNumberArray: R
-  }, "__esModule", {
+  var m = {},
+      O = {},
+      P = {},
+      b = {};
+  Object.defineProperty(b, "__esModule", {
     value: !0
   });
+  var I = "undefined" != typeof window && window.navigator.userAgent;
+  b.isEdge = /(MSIE |Trident\/|Edge\/)/i.test(I), Object.defineProperty(P, "__esModule", {
+    value: !0
+  });
+  var C = b.isEdge ? Array : Float32Array;
 
-  var O = function O(e, t, r) {
+  P.createNumberArray = function (e) {
+    return new C(e);
+  };
+
+  var E = {};
+  Object.defineProperty(E, "__esModule", {
+    value: !0
+  });
+  var D = d;
+  E.computeAbsoluteOrigin = function (e, t, r) {
     var n = function (e) {
       for (var t = e[0], r = e[1], n = r, o = t, i = 2; i < e.length; i += 6) {
         var a = e[i + 4],
             u = e[i + 5];
-        t = p.min(t, a), o = p.max(o, a), r = p.min(r, u), n = p.max(n, u);
+        t = D.min(t, a), o = D.max(o, a), r = D.min(r, u), n = D.max(n, u);
       }
 
       return {
@@ -249,14 +239,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       x: n.x + n.w * e,
       y: n.y + n.h * t
     };
-  },
-      P = Object.defineProperty({
-    computeAbsoluteOrigin: O
-  }, "__esModule", {
+  }, Object.defineProperty(O, "__esModule", {
     value: !0
   });
+  var T = P,
+      x = E;
 
-  var b = function e(t, r, n) {
+  O.fillSegments = function e(t, r, n) {
     var o = t.length,
         i = r.length;
     if (o < i) return e(r, t, n);
@@ -268,28 +257,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           l = n.y;
 
       if (!n.absolute) {
-        var c = P.computeAbsoluteOrigin(s, l, u);
+        var c = x.computeAbsoluteOrigin(s, l, u);
         s = c.x, l = c.y;
       }
 
-      for (var f = m.createNumberArray(u.length), p = 0; p < u.length; p += 2) {
+      for (var f = T.createNumberArray(u.length), p = 0; p < u.length; p += 2) {
         f[p] = s, f[p + 1] = l;
       }
 
       r[a] = f;
     }
-  },
-      I = Object.defineProperty({
-    fillSegments: b
-  }, "__esModule", {
+  };
+
+  var U = {},
+      j = {};
+  Object.defineProperty(j, "__esModule", {
     value: !0
   });
+  var M = P;
 
-  var C = function C(e, t) {
+  j.rotatePoints = function (e, t) {
     var r,
         n = e.length,
         o = n - t,
-        i = m.createNumberArray(t);
+        i = M.createNumberArray(t);
 
     for (r = 0; r < t; r++) {
       i[r] = e[r];
@@ -302,28 +293,29 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     for (r = 0; r < t; r++) {
       e[o + r] = i[r];
     }
-  },
-      E = Object.defineProperty({
-    rotatePoints: C
-  }, "__esModule", {
+  };
+
+  var S = {};
+  Object.defineProperty(S, "__esModule", {
     value: !0
   });
-
-  var D = function D(e, t, r, n) {
-    return p.sqrt((e - r) * (e - r) + (t - n) * (t - n));
-  },
-      T = Object.defineProperty({
-    distance: D
-  }, "__esModule", {
+  var L = d;
+  S.distance = function (e, t, r, n) {
+    return L.sqrt((e - r) * (e - r) + (t - n) * (t - n));
+  }, Object.defineProperty(U, "__esModule", {
     value: !0
   });
+  var N = j,
+      V = v,
+      w = S,
+      W = E;
 
-  var x = function x(e, t, r, n) {
+  U.normalizePoints = function (e, t, r, n) {
     var o = n.length;
 
     if (n[o - 2] === n[0] && n[o - 1] === n[1]) {
       if (!e) {
-        var i = P.computeAbsoluteOrigin(t, r, n);
+        var i = W.computeAbsoluteOrigin(t, r, n);
         t = i.x, r = i.y;
       }
 
@@ -332,37 +324,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           s = n.slice(2);
       o = s.length;
 
-      for (var c = 0; c < o; c += 6) {
-        var f = T.distance(t, t, s[c], s[c + 1]);
-        (u === l._ || f < u) && (u = f, a = c);
+      for (var l = 0; l < o; l += 6) {
+        var c = w.distance(t, t, s[l], s[l + 1]);
+        (u === V._ || c < u) && (u = c, a = l);
       }
 
-      E.rotatePoints(s, a), n[0] = s[o - 2], n[1] = s[o - 1];
+      N.rotatePoints(s, a), n[0] = s[o - 2], n[1] = s[o - 1];
 
-      for (c = 0; c < s.length; c++) {
-        n[c + 2] = s[c];
+      for (l = 0; l < s.length; l++) {
+        n[l + 2] = s[l];
       }
-    }
-  },
-      U = Object.defineProperty({
-    normalizePoints: x
-  }, "__esModule", {
-    value: !0
-  });
-
-  var j = function j(e, t) {
-    for (var r = e[0].length, n = 0; n < r; n++) {
-      var o = e[0][n],
-          i = e[1][n],
-          a = p.max(o.length + t, i.length + t);
-      e[0][n] = S(o, a), e[1][n] = S(i, a);
     }
   };
 
-  function S(e, t) {
+  var Q = {};
+  Object.defineProperty(Q, "__esModule", {
+    value: !0
+  });
+  var z = d,
+      B = P;
+
+  function H(e, t) {
     var r = t - e.length,
         n = Math.ceil(t / e.length),
-        o = m.createNumberArray(t);
+        o = B.createNumberArray(t);
     o[0] = e[0], o[1] = e[1];
 
     for (var i = 1, a = 1; a < t - 1;) {
@@ -377,80 +362,89 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return o;
   }
 
-  var M = S,
-      L = Object.defineProperty({
-    fillPoints: j,
-    fillSubpath: M
-  }, "__esModule", {
+  Q.fillPoints = function (e, t) {
+    for (var r = e[0].length, n = 0; n < r; n++) {
+      var o = e[0][n],
+          i = e[1][n],
+          a = z.max(o.length + t, i.length + t);
+      e[0][n] = H(o, a), e[1][n] = H(i, a);
+    }
+  }, Q.fillSubpath = H;
+  var q = {},
+      Z = {};
+  Object.defineProperty(Z, "__esModule", {
     value: !0
   });
-
-  var N = function N(e) {
+  var k = d,
+      F = S;
+  Z.perimeterPoints = function (e) {
     for (var t = e.length, r = e[t - 2], n = e[t - 1], o = 0, i = 0; i < t; i += 6) {
-      o += T.distance(e[i], e[i + 1], r, n), r = e[i], n = e[i + 1];
+      o += F.distance(e[i], e[i + 1], r, n), r = e[i], n = e[i + 1];
     }
 
-    return p.floor(o);
-  },
-      V = Object.defineProperty({
-    perimeterPoints: N
-  }, "__esModule", {
+    return k.floor(o);
+  }, Object.defineProperty(q, "__esModule", {
     value: !0
   });
-
-  var W = function W(e) {
+  var $ = Z;
+  q.getSortedSegments = function (e) {
     return e.map(function (e) {
       return {
         points: e,
-        perimeter: V.perimeterPoints(e)
+        perimeter: $.perimeterPoints(e)
       };
     }).sort(function (e, t) {
       return t.perimeter - e.perimeter;
     }).map(function (e) {
       return e.points;
     });
-  },
-      w = Object.defineProperty({
-    getSortedSegments: W
-  }, "__esModule", {
+  }, Object.defineProperty(m, "__esModule", {
     value: !0
   });
+  var X = O,
+      Y = U,
+      G = Q,
+      J = v,
+      K = g,
+      ee = q;
 
-  var Q = function Q(e, t, r) {
-    r.optimize === l.FILL && (e = w.getSortedSegments(e), t = w.getSortedSegments(t)), e.length !== t.length && (r.optimize === l.FILL ? I.fillSegments(e, t, r.origin) : y.raiseError("optimize:none requires equal lengths"));
+  m.normalizePaths = function (e, t, r) {
+    r.optimize === J.FILL && (e = ee.getSortedSegments(e), t = ee.getSortedSegments(t)), e.length !== t.length && (r.optimize === J.FILL ? X.fillSegments(e, t, r.origin) : K.raiseError("optimize:none requires equal lengths"));
     var n = Array(2);
 
-    if (n[0] = e, n[1] = t, r.optimize === l.FILL) {
+    if (n[0] = e, n[1] = t, r.optimize === J.FILL) {
       for (var o = r.origin, i = o.x, a = o.y, u = o.absolute, s = 0; s < e.length; s++) {
-        U.normalizePoints(u, i, a, n[0][s]), U.normalizePoints(u, i, a, n[1][s]);
+        Y.normalizePoints(u, i, a, n[0][s]), Y.normalizePoints(u, i, a, n[1][s]);
       }
 
-      L.fillPoints(n, 6 * r.addPoints);
+      G.fillPoints(n, 6 * r.addPoints);
     }
 
     return n;
-  },
-      z = Object.defineProperty({
-    normalizePaths: Q
-  }, "__esModule", {
-    value: !0
-  });
+  };
 
-  var B = function B(e, t) {
+  var te = {};
+  Object.defineProperty(te, "__esModule", {
+    value: !0
+  }), te.fillObject = function (e, t) {
     for (var r in t) {
       e.hasOwnProperty(r) || (e[r] = t[r]);
     }
 
     return e;
-  },
-      H = Object.defineProperty({
-    fillObject: B
-  }, "__esModule", {
+  }, Object.defineProperty(f, "__esModule", {
     value: !0
-  }),
-      q = {
+  });
+  var re = p,
+      ne = d,
+      oe = g,
+      ie = m,
+      ae = te,
+      ue = P,
+      se = v,
+      le = {
     addPoints: 0,
-    optimize: l.FILL,
+    optimize: se.FILL,
     origin: {
       x: 0,
       y: 0
@@ -458,105 +452,108 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     precision: 0
   };
 
-  var Z = function Z(e, t) {
-    t = H.fillObject(t, q), (!e || e.length < 2) && y.raiseError("invalid arguments");
-
-    for (var r = e.length - 1, n = Array(r), o = 0; o < r; o++) {
-      n[o] = k(e[o], e[o + 1], t);
-    }
-
-    var i = t.precision ? function (e) {
-      return e.toFixed(t.precision);
-    } : l._;
-    return function (e) {
-      var t = r * e,
-          o = p.min(p.floor(t), r - 1);
-      return v.renderPath(n[o]((t - o) / (o + 1)), i);
-    };
-  };
-
-  function k(e, t, r) {
-    var n = z.normalizePaths(e.getData(), t.getData(), r),
+  function ce(e, t, r) {
+    var n = ie.normalizePaths(e.getData(), t.getData(), r),
         o = n[0].length;
     return function (r) {
-      if (p.abs(r - 0) < p.EPSILON) return e.getStringData();
-      if (p.abs(r - 1) < p.EPSILON) return t.getStringData();
+      if (ne.abs(r - 0) < ne.EPSILON) return e.getStringData();
+      if (ne.abs(r - 1) < ne.EPSILON) return t.getStringData();
 
       for (var i = Array(o), a = 0; a < o; a++) {
-        i[a] = F(n[0][a], n[1][a], r);
+        i[a] = fe(n[0][a], n[1][a], r);
       }
 
       return i;
     };
   }
 
-  function F(e, t, r) {
-    for (var n = e.length, o = m.createNumberArray(n), i = 0; i < n; i++) {
+  function fe(e, t, r) {
+    for (var n = e.length, o = ue.createNumberArray(n), i = 0; i < n; i++) {
       o[i] = e[i] + (t[i] - e[i]) * r;
     }
 
     return o;
   }
 
-  var $ = F,
-      X = Object.defineProperty({
-    interpolatePath: Z,
-    mixPoints: $
-  }, "__esModule", {
+  f.interpolatePath = function (e, t) {
+    t = ae.fillObject(t, le), (!e || e.length < 2) && oe.raiseError("invalid arguments");
+
+    for (var r = e.length - 1, n = Array(r), o = 0; o < r; o++) {
+      n[o] = ce(e[o], e[o + 1], t);
+    }
+
+    var i = t.precision ? function (e) {
+      return e.toFixed(t.precision);
+    } : se._;
+    return function (e) {
+      var t = r * e,
+          o = ne.min(ne.floor(t), r - 1);
+      return re.renderPath(n[o]((t - o) / (o + 1)), i);
+    };
+  }, f.mixPoints = fe;
+  var pe = {},
+      ve = {},
+      _e = {},
+      de = {};
+  Object.defineProperty(de, "__esModule", {
     value: !0
   });
+  var ye = v;
 
-  var Y = function Y(e, t) {
-    return e === l._ ? t : e;
-  },
-      G = Object.defineProperty({
-    coalesce: Y
-  }, "__esModule", {
+  de.coalesce = function (e, t) {
+    return e === ye._ ? t : e;
+  };
+
+  var Ae = {};
+  Object.defineProperty(Ae, "__esModule", {
     value: !0
-  }),
-      J = 120 * p.PI / 180,
-      K = 2 * p.PI;
-
-  var ee = function e(t, r, n, o, i, a, u, s, l, c, f, _, v) {
+  });
+  var he = d,
+      ge = 120 * he.PI / 180,
+      Re = 2 * he.PI;
+  Ae.arcToCurve = function e(t, r, n, o, i, a, u, s, l, c, f, p, v) {
     if (n <= 0 || o <= 0) return [t, r, s, l, s, l];
-    var d,
-        y = p.PI / 180 * (+i || 0),
-        A = p.cos(y),
-        h = p.sin(y),
-        g = !!c;
 
-    if (!g) {
-      var R = t,
-          m = s,
-          O = ((t = R * A - r * -h) - (s = m * A - l * -h)) / 2,
-          P = ((r = R * -h + r * A) - (l = m * -h + l * A)) / 2,
-          b = O * O / (n * n) + P * P / (o * o);
-      b > 1 && (n *= b = p.sqrt(b), o *= b);
-      var I = (a === u ? -1 : 1) * p.sqrt(p.abs((n * n * o * o - n * n * P * P - o * o * O * O) / (n * n * P * P + o * o * O * O)));
-      _ = I * n * P / o + (t + s) / 2, v = I * -o * O / n + (r + l) / 2, c = p.asin((r - v) / o), f = p.asin((l - v) / o), t < _ && (c = p.PI - c), s < _ && (f = p.PI - f), c < 0 && (c += K), f < 0 && (f += K), u && c > f && (c -= K), !u && f > c && (f -= K);
+    var _,
+        d = he.PI / 180 * (+i || 0),
+        y = he.cos(d),
+        A = he.sin(d),
+        h = !!c;
+
+    if (!h) {
+      var g = t,
+          R = s,
+          m = ((t = g * y - r * -A) - (s = R * y - l * -A)) / 2,
+          O = ((r = g * -A + r * y) - (l = R * -A + l * y)) / 2,
+          P = m * m / (n * n) + O * O / (o * o);
+      P > 1 && (n *= P = he.sqrt(P), o *= P);
+      var b = (a === u ? -1 : 1) * he.sqrt(he.abs((n * n * o * o - n * n * O * O - o * o * m * m) / (n * n * O * O + o * o * m * m)));
+      p = b * n * O / o + (t + s) / 2, v = b * -o * m / n + (r + l) / 2, c = he.asin((r - v) / o), f = he.asin((l - v) / o), t < p && (c = he.PI - c), s < p && (f = he.PI - f), c < 0 && (c += Re), f < 0 && (f += Re), u && c > f && (c -= Re), !u && f > c && (f -= Re);
     }
 
-    if (p.abs(f - c) > J) {
-      var C = f,
-          E = s,
-          D = l;
-      f = c + J * (u && f > c ? 1 : -1), d = e(s = _ + n * p.cos(f), l = v + o * p.sin(f), n, o, i, 0, u, E, D, f, C, _, v);
-    } else d = [];
+    if (he.abs(f - c) > ge) {
+      var I = f,
+          C = s,
+          E = l;
+      f = c + ge * (u && f > c ? 1 : -1), _ = e(s = p + n * he.cos(f), l = v + o * he.sin(f), n, o, i, 0, u, C, E, f, I, p, v);
+    } else _ = [];
 
-    var T = 4 / 3 * p.tan((f - c) / 4);
-    if (d.splice(0, 0, 2 * t - (t + T * n * p.sin(c)), 2 * r - (r - T * o * p.cos(c)), s + T * n * p.sin(f), l - T * o * p.cos(f), s, l), !g) for (var x = 0, U = d.length; x < U; x += 2) {
-      var j = d[x],
-          S = d[x + 1];
-      d[x] = j * A - S * h, d[x + 1] = j * h + S * A;
+    var D = 4 / 3 * he.tan((f - c) / 4);
+    if (_.splice(0, 0, 2 * t - (t + D * n * he.sin(c)), 2 * r - (r - D * o * he.cos(c)), s + D * n * he.sin(f), l - D * o * he.cos(f), s, l), !h) for (var T = 0, x = _.length; T < x; T += 2) {
+      var U = _[T],
+          j = _[T + 1];
+      _[T] = U * y - j * A, _[T + 1] = U * A + j * y;
     }
-    return d;
-  },
-      te = Object.defineProperty({
-    arcToCurve: ee
-  }, "__esModule", {
+    return _;
+  }, Object.defineProperty(_e, "__esModule", {
     value: !0
-  }),
-      re = {
+  });
+  var me = v,
+      Oe = de,
+      Pe = g,
+      be = d,
+      Ie = Ae,
+      Ce = {
     M: 2,
     H: 1,
     V: 1,
@@ -569,105 +566,107 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     A: 7
   };
 
-  function ne(e, t, r, n, o, i, a) {
+  function Ee(e, t, r, n, o, i, a) {
     var u = e.x,
         s = e.y;
-    e.x = G.coalesce(i, u), e.y = G.coalesce(a, s), e.current.push(G.coalesce(t, u), r = G.coalesce(r, s), n = G.coalesce(n, u), o = G.coalesce(o, s), e.x, e.y), e.lc = e.c;
+    e.x = Oe.coalesce(i, u), e.y = Oe.coalesce(a, s), e.current.push(Oe.coalesce(t, u), r = Oe.coalesce(r, s), n = Oe.coalesce(n, u), o = Oe.coalesce(o, s), e.x, e.y), e.lc = e.c;
   }
 
-  function oe(e) {
+  function De(e) {
     var t = e.c,
         r = e.t,
         n = e.x,
         o = e.y;
-    if (t === l.DRAW_LINE_VERTICAL) r[0] += o;else if (t === l.DRAW_LINE_HORIZONTAL) r[0] += n;else if (t === l.DRAW_ARC) r[5] += n, r[6] += o;else for (var i = 0; i < r.length; i += 2) {
+    if (t === me.DRAW_LINE_VERTICAL) r[0] += o;else if (t === me.DRAW_LINE_HORIZONTAL) r[0] += n;else if (t === me.DRAW_ARC) r[5] += n, r[6] += o;else for (var i = 0; i < r.length; i += 2) {
       r[i] += n, r[i + 1] += o;
     }
   }
 
-  function ie(e) {
-    return e.split(l.SPACE).map(ae);
+  function Te(e) {
+    return e.split(me.SPACE).map(xe);
   }
 
-  function ae(e, t) {
+  function xe(e, t) {
     return 0 === t ? e : +e;
   }
 
-  var ue = function ue(e) {
+  _e.parsePoints = function (e) {
     for (var t = {
       x: 0,
       y: 0,
       segments: []
     }, r = function (e) {
-      return e.replace(/[\^\s]*([mhvlzcsqta]|\-?\d*\.?\d+)[,\$\s]*/gi, " $1").replace(/([mhvlzcsqta])/gi, " $1").trim().split("  ").map(ie);
+      return e.replace(/[\^\s]*([mhvlzcsqta]|\-?\d*\.?\d+)[,\$\s]*/gi, " $1").replace(/([mhvlzcsqta])/gi, " $1").trim().split("  ").map(Te);
     }(e), n = 0; n < r.length; n++) {
       var o = r[n],
           i = o[0],
           a = i.toUpperCase(),
-          u = a !== l.CLOSE_PATH && a !== i;
+          u = a !== me.CLOSE_PATH && a !== i;
       t.c = a;
-      var s = re[a],
-          c = o,
-          f = 1;
+      var s = Ce[a],
+          l = o,
+          c = 1;
 
       do {
-        t.t = 1 === c.length ? c : c.slice(f, f + s), u && oe(t);
-        var _ = t.t,
-            v = t.x,
-            d = t.y,
+        t.t = 1 === l.length ? l : l.slice(c, c + s), u && De(t);
+
+        var f = t.t,
+            p = t.x,
+            v = t.y,
+            _ = void 0,
+            d = void 0,
+            y = void 0,
             A = void 0,
             h = void 0,
-            g = void 0,
-            R = void 0,
-            m = void 0,
-            O = void 0;
-        if (a === l.MOVE_CURSOR) t.segments.push(t.current = [t.x = _[0], t.y = _[1]]);else if (a === l.DRAW_LINE_HORIZONTAL) ne(t, l._, l._, l._, l._, _[0], l._);else if (a === l.DRAW_LINE_VERTICAL) ne(t, l._, l._, l._, l._, l._, _[0]);else if (a === l.DRAW_LINE) ne(t, l._, l._, l._, l._, _[0], _[1]);else if (a === l.CLOSE_PATH) ne(t, l._, l._, l._, l._, t.current[0], t.current[1]);else if (a === l.DRAW_CURVE_CUBIC_BEZIER) ne(t, _[0], _[1], _[2], _[3], _[4], _[5]), t.cx = _[2], t.cy = _[3];else if (a === l.DRAW_CURVE_SMOOTH) {
-          var P = t.lc !== l.DRAW_CURVE_SMOOTH && t.lc !== l.DRAW_CURVE_CUBIC_BEZIER;
-          ne(t, A = P ? l._ : 2 * v - t.cx, h = P ? l._ : 2 * d - t.cy, _[0], _[1], _[2], _[3]), t.cx = _[0], t.cy = _[1];
-        } else if (a === l.DRAW_CURVE_QUADRATIC) {
-          var b = _[0],
-              I = _[1];
-          g = _[2], R = _[3], ne(t, v + (b - v) * p.QUADRATIC_RATIO, d + (I - d) * p.QUADRATIC_RATIO, g + (b - g) * p.QUADRATIC_RATIO, R + (I - R) * p.QUADRATIC_RATIO, g, R), t.cx = b, t.cy = I;
-        } else if (a === l.DRAW_CURVE_QUADRATIC_CONTINUATION) g = _[0], R = _[1], t.lc === l.DRAW_CURVE_QUADRATIC || t.lc === l.DRAW_CURVE_QUADRATIC_CONTINUATION ? (A = v + (2 * v - t.cx - v) * p.QUADRATIC_RATIO, h = d + (2 * d - t.cy - d) * p.QUADRATIC_RATIO, m = g + (2 * v - t.cx - g) * p.QUADRATIC_RATIO, O = R + (2 * d - t.cy - R) * p.QUADRATIC_RATIO) : (A = m = v, h = O = d), ne(t, A, h, m, O, g, R), t.cx = m, t.cy = O;else if (a === l.DRAW_ARC) for (var C = te.arcToCurve(v, d, _[0], _[1], _[2], _[3], _[4], _[5], _[6]), E = 0; E < C.length; E += 6) {
-          ne(t, C[E], C[E + 1], C[E + 2], C[E + 3], C[E + 4], C[E + 5]);
-        } else y.raiseError(t.c, " is not supported");
-        f += s;
-      } while (f < c.length);
+            g = void 0;
+
+        if (a === me.MOVE_CURSOR) t.segments.push(t.current = [t.x = f[0], t.y = f[1]]);else if (a === me.DRAW_LINE_HORIZONTAL) Ee(t, me._, me._, me._, me._, f[0], me._);else if (a === me.DRAW_LINE_VERTICAL) Ee(t, me._, me._, me._, me._, me._, f[0]);else if (a === me.DRAW_LINE) Ee(t, me._, me._, me._, me._, f[0], f[1]);else if (a === me.CLOSE_PATH) Ee(t, me._, me._, me._, me._, t.current[0], t.current[1]);else if (a === me.DRAW_CURVE_CUBIC_BEZIER) Ee(t, f[0], f[1], f[2], f[3], f[4], f[5]), t.cx = f[2], t.cy = f[3];else if (a === me.DRAW_CURVE_SMOOTH) {
+          var R = t.lc !== me.DRAW_CURVE_SMOOTH && t.lc !== me.DRAW_CURVE_CUBIC_BEZIER;
+          Ee(t, _ = R ? me._ : 2 * p - t.cx, d = R ? me._ : 2 * v - t.cy, f[0], f[1], f[2], f[3]), t.cx = f[0], t.cy = f[1];
+        } else if (a === me.DRAW_CURVE_QUADRATIC) {
+          var m = f[0],
+              O = f[1];
+          y = f[2], A = f[3], Ee(t, p + (m - p) * be.QUADRATIC_RATIO, v + (O - v) * be.QUADRATIC_RATIO, y + (m - y) * be.QUADRATIC_RATIO, A + (O - A) * be.QUADRATIC_RATIO, y, A), t.cx = m, t.cy = O;
+        } else if (a === me.DRAW_CURVE_QUADRATIC_CONTINUATION) y = f[0], A = f[1], t.lc === me.DRAW_CURVE_QUADRATIC || t.lc === me.DRAW_CURVE_QUADRATIC_CONTINUATION ? (_ = p + (2 * p - t.cx - p) * be.QUADRATIC_RATIO, d = v + (2 * v - t.cy - v) * be.QUADRATIC_RATIO, h = y + (2 * p - t.cx - y) * be.QUADRATIC_RATIO, g = A + (2 * v - t.cy - A) * be.QUADRATIC_RATIO) : (_ = h = p, d = g = v), Ee(t, _, d, h, g, y, A), t.cx = h, t.cy = g;else if (a === me.DRAW_ARC) for (var P = Ie.arcToCurve(p, v, f[0], f[1], f[2], f[3], f[4], f[5], f[6]), b = 0; b < P.length; b += 6) {
+          Ee(t, P[b], P[b + 1], P[b + 2], P[b + 3], P[b + 4], P[b + 5]);
+        } else Pe.raiseError(t.c, " is not supported");
+        c += s;
+      } while (c < l.length);
     }
 
     return t.segments;
-  },
-      se = Object.defineProperty({
-    parsePoints: ue
-  }, "__esModule", {
+  }, Object.defineProperty(ve, "__esModule", {
     value: !0
-  }),
-      le = /^([#|\.]|path)/i;
-
-  var ce = function ce(e) {
+  });
+  var Ue = g,
+      je = _e,
+      Me = v,
+      Se = /^([#|\.]|path)/i;
+  ve.convertToPathData = function (e) {
     if (Array.isArray(e)) return {
       data: e,
-      stringData: l._
+      stringData: Me._
     };
     var t;
-    if ("string" == typeof e && le.test(e) ? e = document.querySelector(e) : t = e, "string" == typeof e) return {
-      data: se.parsePoints(e),
+    if ("string" == typeof e && Se.test(e) ? e = document.querySelector(e) : t = e, "string" == typeof e) return {
+      data: je.parsePoints(e),
       stringData: t
     };
     var r = e;
     return "PATH" === r.tagName.toUpperCase() ? (t = r.getAttribute("d"), {
-      data: se.parsePoints(t),
+      data: je.parsePoints(t),
       stringData: t
-    }) : y.raiseError("Unsupported element ", r.tagName);
-  },
-      fe = Object.defineProperty({
-    convertToPathData: ce
-  }, "__esModule", {
+    }) : Ue.raiseError("Unsupported element ", r.tagName);
+  }, Object.defineProperty(pe, "__esModule", {
     value: !0
-  }),
-      pe = function () {
+  });
+
+  var Le = ve,
+      Ne = d,
+      Ve = v,
+      we = function () {
     function e(e) {
-      var t = fe.convertToPathData(e),
+      var t = Le.convertToPathData(e),
           r = t.data,
           n = t.stringData;
       this.data = r, this.stringData = n;
@@ -678,47 +677,45 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     }, e.prototype.getStringData = function () {
       return this.stringData || (this.stringData = this.render());
     }, e.prototype.render = function (e) {
-      void 0 === e && (e = p.round);
+      void 0 === e && (e = Ne.round);
 
       for (var t = this.data, r = [], n = 0; n < t.length; n++) {
         var o = t[n];
-        r.push(l.MOVE_CURSOR, e(o[0]), e(o[1]), l.DRAW_CURVE_CUBIC_BEZIER);
+        r.push(Ve.MOVE_CURSOR, e(o[0]), e(o[1]), Ve.DRAW_CURVE_CUBIC_BEZIER);
 
         for (var i = void 0, a = 2; a < o.length; a += 6) {
           var u = e(o[a]),
               s = e(o[a + 1]),
-              c = e(o[a + 2]),
-              f = e(o[a + 3]),
-              _ = e(o[a + 4]),
-              v = e(o[a + 5]);
-
-          u == _ && c == _ && s == v && f == v && i == (i = "" + u + s + c + f + _ + v) || r.push(u, s, c, f, _, v);
+              l = e(o[a + 2]),
+              c = e(o[a + 3]),
+              f = e(o[a + 4]),
+              p = e(o[a + 5]);
+          u == f && l == f && s == p && c == p && i == (i = "" + u + s + l + c + f + p) || r.push(u, s, l, c, f, p);
         }
       }
 
-      return r.join(l.SPACE);
+      return r.join(Ve.SPACE);
     }, e;
-  }(),
-      _e = Object.defineProperty({
-    Path: pe
-  }, "__esModule", {
+  }();
+
+  pe.Path = we, Object.defineProperty(c, "__esModule", {
     value: !0
   });
-
-  var ve = function ve(e, t) {
-    return X.interpolatePath(e.map(function (e) {
-      return new _e.Path(e);
+  var We = f,
+      Qe = pe;
+  c.interpolate = function (e, t) {
+    return We.interpolatePath(e.map(function (e) {
+      return new Qe.Path(e);
     }), t || {});
-  },
-      de = Object.defineProperty({
-    interpolate: ve
-  }, "__esModule", {
+  }, Object.defineProperty(l, "__esModule", {
     value: !0
-  }).interpolate;
+  });
+  var ze = c,
+      Be = l.interpolate = ze.interpolate,
+      He = pe;
+  l.Path = He.Path;
 
-  _e.Path;
-
-  var ye = function (e) {
+  var qe = function (e) {
     !function (e, t) {
       if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
       e.prototype = Object.create(t && t.prototype, {
@@ -741,7 +738,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return t = l, (r = [{
       key: "onGetContext",
       value: function value() {
-        this.interpolator = de([this.initialValue, this.animAttributes.d], {
+        this.interpolator = Be([this.initialValue, this.animAttributes.d], {
           addPoints: this.attrs.addPoints || 0,
           origin: {
             x: this.attrs.originX || 0,
@@ -767,7 +764,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     npm_name: "@donkeyclip/motorcortex-polymorph",
     version: "0.0.6",
     incidents: [{
-      exportable: ye,
+      exportable: qe,
       name: "Polymorph",
       attributesValidationRules: {
         animatedAttrs: {
@@ -894,7 +891,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("b57810c0c004b8f39971")
+/******/ 		__webpack_require__.h = () => ("d205e4ad755a5aeef90f")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
