@@ -1,63 +1,54 @@
 const path = require("path");
 const webpack = require("webpack");
 
+const dcPath = "https://code.donkeyclip.com";
+
 module.exports = {
   context: path.resolve(__dirname),
 
   entry: "./index.js",
 
-  resolve: {
-    extensions: [".js"],
-    modules: [path.resolve("./"), "node_modules"],
-    fallback: {
-      fs: false,
-      path: false,
-    },
-  },
   output: {
-    filename: "bundle.js",
+    path: path.resolve(__dirname, "./"),
     // the output bundle
-
-    path: path.resolve(__dirname, "./" /*"./dist"*/),
+    filename: "./bundle.js",
   },
 
   module: {
     rules: [
       {
-        test: /\.js?$/,
-        use: ["babel-loader"],
-        exclude: /node_modules/,
-      },
-      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
       },
     ],
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      Promise: "es6-promise",
-      fetch:
-        "imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch",
-    }),
-
-    new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
+    new webpack.HotModuleReplacementPlugin(),
 
-    new webpack.NoEmitOnErrorsPlugin(),
     // do not emit compiled assets that include errors
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
   devServer: {
-    host: "0.0.0.0",
-    port: 8080,
+    host: "127.0.0.1",
+    port: 8090,
     historyApiFallback: false,
-    hot: false,
-    static: "./demo",
-  },
-
-  optimization: {
-    minimize: false,
+    hot: true,
+    contentBase: "./demo",
+    open: true,
+    openPage: dcPath,
+    headers: {
+      "Access-Control-Allow-Origin": dcPath,
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
+    },
   },
 };
