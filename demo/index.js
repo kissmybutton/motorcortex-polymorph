@@ -1,8 +1,7 @@
 import MotorCortex from "@donkeyclip/motorcortex";
-import MyPluginDefinition from "../dist/motorcortex-polymorph.umd";
-const MyPlugin = MotorCortex.loadPlugin(MyPluginDefinition);
-
 import Player from "@donkeyclip/motorcortex-player";
+import MyPluginDefinition from "../dist/motorcortex-polymorph.esm";
+const MyPlugin = MotorCortex.loadPlugin(MyPluginDefinition);
 
 const clip = new MotorCortex.HTMLClip({
   html: ` <div class="wrapper">
