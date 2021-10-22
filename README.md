@@ -1,6 +1,7 @@
 # motorcortex-polymorph
 
 ## Demo
+
 [Check it out here](https://donkeyclip.github.io/motorcortex-polymorph/demo/index.html)
 
 ## Installation
@@ -14,8 +15,8 @@ $ yarn add @donkeyclip/motorcortex-polymorph
 ## Loading
 
 ```javascript
-import MotorCortex from "@donkeyclip/motorcortex/"
-import polymorphDefinition from "@donkeyclip/motorcortex-polymorph"
+import MotorCortex from "@donkeyclip/motorcortex/";
+import polymorphDefinition from "@donkeyclip/motorcortex-polymorph";
 const Plugin = MotorCortex.loadPlugin(polymorphDefinition);
 ```
 
@@ -43,12 +44,14 @@ const polymorph = new Plugin.Polymorph(
 
 ### Polymorph Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| d     | svg path  | sting |
-| addPoints     | Adds additional points to each side of the tween over what is required  | num |
-|  originX   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. | num |
-| originY     | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path.  | num |
-| precision     | The number of decimal places to use when rendering paths  | num |
+| Name      |                                        Are                                         | Values |
+| --------- | :--------------------------------------------------------------------------------: | -----: |
+| d         |                                      svg path                                      |  sting |
+| addPoints |       Adds additional points to each side of the tween over what is required       |    num |
+| originX   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. |    num |
+| originY   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. |    num |
+| precision |              The number of decimal places to use when rendering paths              |    num |
 
+[MIT License](https://opensource.org/licenses/MIT)
 
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)

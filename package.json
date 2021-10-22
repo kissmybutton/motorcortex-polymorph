@@ -5,10 +5,10 @@
   "main": "dist/motorcortex-polymorph.cjs.js",
   "module": "dist/motorcortex-polymorph.esm.js",
   "browser": "dist/motorcortex-polymorph.umd.js",
-  "author": "",
+  "author": "DonkeyClip (donkeyclip.com) <opensource@donkeyclip.com>",
   "repository": {
     "type": "git",
-    "url": "Your git repo here"
+    "url": "https://github.com/donkeyclip/motorcortex-polymorph"
   },
   "license": "MIT",
   "engines": {
