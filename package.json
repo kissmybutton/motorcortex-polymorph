@@ -86,7 +86,7 @@
     "size-limit": "6.0.3",
     "webpack": "5.60.0",
     "webpack-cli": "4.9.1",
-    "webpack-dev-server": "4.3.1"
+    "webpack-dev-server": "4.4.0"
   },
   "dependencies": {
     "polymorph-js": "^1.0.2"
