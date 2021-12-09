@@ -1121,7 +1121,7 @@ var MyEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
 }(MotorCortex__default["default"].Effect);
 
 var name = "@donkeyclip/motorcortex-polymorph";
-var version = "1.0.0";
+var version = "1.0.1";
 
 var index = {
   npm_name: name,
