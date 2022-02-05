@@ -1,9 +1,30 @@
-# motorcortex-polymorph
+# MotorCortex-Polymorph
+
+**Table of Contents**
+
+- [MotorCortex-Polymorph](#motorcortex-polymorph)
+  - [Demo](#demo)
+- [Intro / Features](#intro--features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Importing and Loading](#importing-and-loading)
+- [Creating Incidents](#creating-incidents)
+  - [Polymorph](#polymorph)
+- [Adding Incidents in your clip](#adding-incidents-in-your-clip)
+- [Contributing](#contributing)
+- [License](#license)
+- [Sponsored by](#sponsored-by)
 
 ## Demo
-
 [Check it out here](https://donkeyclip.github.io/motorcortex-polymorph/demo/index.html)
 
+# Intro / Features
+MotorCortex-Polymorph brings the capabilities of [Polymorph](https://notoriousb1t.github.io/polymorph-docs/) Library into MotorCortex. With this plugin you can morph a shape to another shape.
+
+This Plugin exposes one Incident:
+- Polymorph
+
+# Getting Started
 ## Installation
 
 ```bash
@@ -12,15 +33,15 @@ $ npm install --save @donkeyclip/motorcortex-polymorph
 $ yarn add @donkeyclip/motorcortex-polymorph
 ```
 
-## Loading
+## Importing and loading
 
 ```javascript
-import MotorCortex from "@donkeyclip/motorcortex/";
+import { loadPlugin } from "@donkeyclip/motorcortex/";
 import polymorphDefinition from "@donkeyclip/motorcortex-polymorph";
-const Plugin = MotorCortex.loadPlugin(polymorphDefinition);
+const Plugin = loadPlugin(polymorphDefinition);
 ```
 
-# Create incident
+# Creating Incidents
 
 ## Polymorph
 
@@ -52,6 +73,25 @@ const polymorph = new Plugin.Polymorph(
 | originY   | Is values between 0 and 1 representing 0% to 100% of the bounding box of the path. |    num |
 | precision |              The number of decimal places to use when rendering paths              |    num |
 
+# Adding Incidents in your clip
+
+```javascript
+clipName.addIncident(incidentName,startTime);
+```
+
+# Contributing 
+
+In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
+1.	**Fork** the repo on GitHub
+2.	**Clone** the project to your own machine
+3.	**Commit** changes to your own branch
+4.	**Push** your work back up to your fork
+5.	Submit a **Pull request** so that we can review your changes
+
+# License
+
 [MIT License](https://opensource.org/licenses/MIT)
 
+# Sponsored by
 [<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
+
