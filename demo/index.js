@@ -20,9 +20,8 @@ const clip = new MotorCortex.HTMLClip({
         width:100%;
         height:100%;
       }
-      #flubber{
-        fill: #000;
-        display:block;
+      svg{
+        flex:1;
       }
     `,
   host: document.getElementById("clip"),
