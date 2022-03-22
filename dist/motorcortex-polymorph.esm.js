@@ -1112,8 +1112,8 @@ var MyEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
     }
   }, {
     key: "onProgress",
-    value: function onProgress(fraction) {
-      this.element.setAttribute("d", this.interpolator(fraction));
+    value: function onProgress(ms) {
+      this.element.setAttribute("d", this.interpolator(this.getFraction(ms)));
     }
   }]);
 

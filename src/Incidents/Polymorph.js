@@ -20,7 +20,7 @@ export default class MyEffect extends MotorCortex.Effect {
     return this.element.getAttribute("d");
   }
 
-  onProgress(fraction) {
-    this.element.setAttribute("d", this.interpolator(fraction));
+  onProgress(ms) {
+    this.element.setAttribute("d", this.interpolator(this.getFraction(ms)));
   }
 }
