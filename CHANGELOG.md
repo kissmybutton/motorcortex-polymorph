@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/donkeyclip/motorcortex-polymorph/compare/v2.0.0...v2.1.0) (2022-04-09)
+
+
+### Features
+
+* drop explorer 11 support ([69cf6a5](https://github.com/donkeyclip/motorcortex-polymorph/commit/69cf6a5a748f543d53d9818c1a5391b59ca009e2))
+* update compatibility with motorcortex ([571485b](https://github.com/donkeyclip/motorcortex-polymorph/commit/571485bd5346d895f22c5494d9ed0edf50cb6127))
+
 ## [2.0.0](https://github.com/donkeyclip/motorcortex-polymorph/compare/v1.0.1...v2.0.0) (2022-03-22)
 
 
