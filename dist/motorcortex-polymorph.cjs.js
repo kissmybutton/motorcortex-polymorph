@@ -1002,7 +1002,7 @@ class MyEffect extends MotorCortex__default["default"].Effect {
 }
 
 var name = "@donkeyclip/motorcortex-polymorph";
-var version = "2.1.0";
+var version = "2.2.0";
 
 var index = {
   npm_name: name,
