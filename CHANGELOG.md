@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/donkeyclip/motorcortex-polymorph/compare/v2.1.0...v2.2.0) (2022-04-30)
+
+
+### Features
+
+* update mc to v9 ([c0ac920](https://github.com/donkeyclip/motorcortex-polymorph/commit/c0ac920ff8be8cc920d042ae33ea459e02dde7ca))
+
 ## [2.1.0](https://github.com/donkeyclip/motorcortex-polymorph/compare/v2.0.0...v2.1.0) (2022-04-09)
 
 
