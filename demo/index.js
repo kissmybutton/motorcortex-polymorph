@@ -1,9 +1,9 @@
-import MotorCortex from "@donkeyclip/motorcortex";
+import { loadPlugin, HTMLClip } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import MyPluginDefinition from "../dist/motorcortex-polymorph.esm";
-const MyPlugin = MotorCortex.loadPlugin(MyPluginDefinition);
+const MyPlugin = loadPlugin(MyPluginDefinition);
 
-const clip = new MotorCortex.HTMLClip({
+const clip = new HTMLClip({
   html: ` <div class="wrapper">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
     <g >
