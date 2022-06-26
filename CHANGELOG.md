@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://github.com/donkeyclip/motorcortex-polymorph/compare/v2.2.0...v2.2.1) (2022-06-26)
+
+
+### Bug Fixes
+
+* import only effect instead of full MC ([0c09bed](https://github.com/donkeyclip/motorcortex-polymorph/commit/0c09bede19b9b2704f2c4539d61392fb9fdfcfec))
+
 ## [2.2.0](https://github.com/donkeyclip/motorcortex-polymorph/compare/v2.1.0...v2.2.0) (2022-04-30)
 
 

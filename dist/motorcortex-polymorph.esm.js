@@ -996,7 +996,7 @@ class MyEffect extends Effect {
 }
 
 var name = "@donkeyclip/motorcortex-polymorph";
-var version = "2.2.0";
+var version = "2.2.1";
 
 var index = {
   npm_name: name,
