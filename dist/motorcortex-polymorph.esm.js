@@ -1,4 +1,4 @@
-import MotorCortex from '@donkeyclip/motorcortex';
+import { Effect } from '@donkeyclip/motorcortex';
 
 var lib = {};
 
@@ -973,7 +973,7 @@ var interpolate = lib.interpolate = interpolate_1.interpolate;
 var path_1 = path;
 lib.Path = path_1.Path;
 
-class MyEffect extends MotorCortex.Effect {
+class MyEffect extends Effect {
   onGetContext() {
     this.interpolator = interpolate([this.initialValue, this.animAttributes.d], {
       addPoints: this.attrs.addPoints || 0,

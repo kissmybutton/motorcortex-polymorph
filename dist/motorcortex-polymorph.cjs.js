@@ -1,10 +1,6 @@
 'use strict';
 
-var MotorCortex = require('@donkeyclip/motorcortex');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex);
+var motorcortex = require('@donkeyclip/motorcortex');
 
 var lib = {};
 
@@ -979,7 +975,7 @@ var interpolate = lib.interpolate = interpolate_1.interpolate;
 var path_1 = path;
 lib.Path = path_1.Path;
 
-class MyEffect extends MotorCortex__default["default"].Effect {
+class MyEffect extends motorcortex.Effect {
   onGetContext() {
     this.interpolator = interpolate([this.initialValue, this.animAttributes.d], {
       addPoints: this.attrs.addPoints || 0,
