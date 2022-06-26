@@ -1,6 +1,6 @@
 {
   "name": "@donkeyclip/motorcortex-polymorph",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "polymorph plugin for MotorCortex",
   "main": "dist/motorcortex-polymorph.cjs.js",
   "module": "dist/motorcortex-polymorph.esm.js",
